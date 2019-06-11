@@ -67,13 +67,11 @@ multiplyNums(3,5, function(myVar){
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  return cb(item, list, function(){
-    if(item === list) {return true}
-    else return false;}
-  )
+  return cb(list.includes(item))
 }
 
-contains('aPencil', items, function(x) {
+//As it stands, it can't account for changes in capitalization. So "gum" returns false, but "Gum" returns true. toUpperCase...
+contains('Pencil', items, function(x) {
  console.log(x);
 })
 
