@@ -110,31 +110,37 @@ console.log(ticketPriceTotal);
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1: provide an array that only contains the names of individuals from a particular company (this does not work, but I'm out of time)
-// let namesFromComp = [];
-// function onlyComp(compName) {
-//     runners.map(function(runner) {
-//         if(compName === runner.company_name) {
-//             namesFromComp.push(runner.first_name.())
-//         }
-//         return namesFromComp;
-//     })
-// }
-// onlyComp('Gabtype')
+// Problem 1: provide an array that only contains the names of individuals from a particular company 
+let compName = "Gabtype";
+
+let namesFromComp = runners.filter((runner) => {
+  return runner.company_name === compName;
+})
+
+console.log(namesFromComp);
 
 
 // Problem 2
 
-//Same as the previous problem, but using forEach instead (this does not work, but I'm out of time!)
-// let namesFromComp2 = [];
+//Same as the previous problem, but using forEach instead to push only first and last name of person from a particular company
 
-// function onlyComp2(compName) {
-//     runners.forEach(function(j) {
-//         namesFromComp2.push(`${j.first_name} ${j.last_name}`)
-//     }
-//         return namesFromComp2;
-// };
 
-// console.log("Gabtype")
+let namesFromComp2 = [];
 
-// Problem 3 (Ran out of time!)
+runners.forEach(function(j) {
+  if(j.company_name === compName) { //uses same compName var from above line 114
+    namesFromComp2.push(`${j.first_name} ${j.last_name}`)
+    }
+    return namesFromComp2;
+});
+
+console.log(namesFromComp2);
+
+// Problem 3 -- using .reduce() to total donations from someone from a particular company
+
+const donationsFromComp = runners.reduce((total, runner) => {
+    if(runner.company_name === compName) {
+        total += runner.donation;
+    } return total;
+}, 0);
+console.log(donationsFromComp);
