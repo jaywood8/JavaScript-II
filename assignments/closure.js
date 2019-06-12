@@ -1,5 +1,15 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
+const outerVar = "outside";
+function myFunction(x,y) {
+  let innerVar = x+y 
+}
+
+//I can access outerVar because it's outside of the function
+console.log(outerVar);
+
+//I cannot access innerVar here because it's inside of the function
+console.log(innerVar); 
 
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
